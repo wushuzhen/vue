@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="浪" @click="lang">
+        <input type="button" value="稳" @click="stop">
+        {{ msg }}
+    </div>
+    <script>
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'情不知所踪,不知所起',
+                timerId: null
+            },
+            methods:{
+                lang(){
+                    clearInterval(this.timerId)
+                    this.timerId = setInterval(() => {
+                        let start = this.msg.substr(0,1)
+                        let end = this.msg.substr(1)
+                        this.msg = end + start
+                    },150)
+                },
+                stop(){
+                    clearInterval(this.timerId)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
