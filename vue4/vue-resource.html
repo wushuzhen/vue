@@ -78,7 +78,7 @@
               pageSize: 10
             }
           }).then(result => {
-            if (result.body.ststus === 200) {
+            if (result.body.ststus === 0) {
               console.log(result.body)
               this.list = result.body.data.goods
               // alert(result.body.succMsg)

@@ -60,7 +60,8 @@
       data: {
         id: "",
         name: "",
-        keywords: "",
+        keywords: '',
+        i: "",
         list: [
           { id: 1, name: '奔驰', ctime: new Date() },
           { id: 2, name: '宝马', ctime: new Date() },
@@ -89,13 +90,13 @@
           // 分析：
           // 1. 如何根据Id，找到要删除这一项的索引
           // 2. 如果找到索引了，直接调用 数组的 splice 方法
-          /* this.list.some((item, i) => {
+          this.list.some((item, i) => {
             if (item.id == id) {
               this.list.splice(i, 1)
               // 在 数组的 some 方法中，如果 return true，就会立即终止这个数组的后续循环
               return true;
             }
-          }) */
+          }) 
           // ES5 中提供了一系列数组迭代的新方法:
           // forEach(): 单纯的循环  
           // some(): 当回调函数返回true时就停止循环  
@@ -156,6 +157,7 @@
           // this.list.splice(index, 1)
         },
         search() { // 根据关键字，进行数据的搜索
+          // alert(123);
           /* var newList = []
           this.list.forEach(item => {
             if (item.name.indexOf(keywords) != -1) {
